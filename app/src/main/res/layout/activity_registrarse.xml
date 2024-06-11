@@ -60,13 +60,13 @@
                 android:id="@+id/rbMayor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mayor de 18 años" />
+                android:text="@string/mayor_de_18_a_os" />
 
             <RadioButton
                 android:id="@+id/rbMenor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Menor de 18 años" />
+                android:text="@string/menor_de_18_a_os" />
 
         </RadioGroup>
 
@@ -82,27 +82,27 @@
             android:id="@+id/cbSoltero"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Soltero" />
+            android:text="@string/soltero" />
 
         <CheckBox
             android:id="@+id/cbCasado"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Casado" />
+            android:text="@string/casado" />
 
         <Button
             android:id="@+id/btnRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="IniciarSesion"
-            android:text="Registrar" />
+            android:text="@string/registrar" />
 
         <Button
             android:id="@+id/btnVolver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="Volver"
-            android:text="Volver" />
+            android:text="@string/volver" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

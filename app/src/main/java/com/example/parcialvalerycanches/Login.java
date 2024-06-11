@@ -18,8 +18,6 @@ public class Login extends AppCompatActivity {
 
     private EditText usuario;
     private EditText contraseña;
-    private Button iniciarsesion;
-    private TextView registrarse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +32,8 @@ public class Login extends AppCompatActivity {
 
         usuario = findViewById(R.id.etUsuario);
         contraseña = findViewById(R.id.etContraseña);
-        iniciarsesion = findViewById(R.id.btnIniciar);
-        registrarse = findViewById(R.id.btnRegistrarse);
+        Button iniciarsesion = findViewById(R.id.btnIniciar);
+        TextView registrarse = findViewById(R.id.btnRegistrarse);
 
         iniciarsesion.setOnClickListener(new View.OnClickListener() {
             @Override

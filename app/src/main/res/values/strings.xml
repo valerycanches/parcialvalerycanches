@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">parcialvalerycanches</string>
+    <string name="todo">TODO</string>
+    <string name="no_cuentas_con_usuario">¿No cuentas con Usuario?</string>
+    <string name="registrarse">REGISTRARSE</string>
+    <string name="iniciar_sesi_n">INICIAR SESIÓN</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="usuario">Usuario</string>
+    <string name="soltero">Soltero</string>
+    <string name="casado">Casado</string>
+    <string name="registrar">Registrar</string>
+    <string name="volver">Volver</string>
+    <string name="menor_de_18_a_os">Menor de 18 años</string>
+    <string name="mayor_de_18_a_os">Mayor de 18 años</string>
     <string-array name="gender_array">
         <item>Seleccionar género</item>
         <item>Masculino</item>
