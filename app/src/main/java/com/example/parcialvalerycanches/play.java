@@ -148,13 +148,13 @@ public class play extends AppCompatActivity implements View.OnClickListener {
 
         if (ganador) {
             if (valorX.equals("X")) {
-                Toast.makeText(this, "¡GANASTE! X", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "¡GANARON LAS X!", Toast.LENGTH_SHORT).show();
                 x++;
-                tvX.setText("X: " + x);
+                tvX.setText(" : " + x);
             } else {
-                Toast.makeText(this, "¡GANASTE! O", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "¡GANARON LAS O!", Toast.LENGTH_SHORT).show();
                 o++;
-                tvO.setText("O: " + o);
+                tvO.setText(" : " + o);
             }
 
             ly1.setEnabled(false);
@@ -170,6 +170,8 @@ public class play extends AppCompatActivity implements View.OnClickListener {
             playerone = !playerone;
         }
     }
+
+
     public void Salir(View view) {
         finish();
     }

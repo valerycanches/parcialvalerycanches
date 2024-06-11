@@ -77,6 +77,7 @@
             android:entries="@array/gender_array"
             android:visibility="visible" />
 
+
         <CheckBox
             android:id="@+id/cbSoltero"
             android:layout_width="150dp"

@@ -78,14 +78,14 @@ public class Login extends AppCompatActivity {
 
         if (usuarios.isEmpty() || contrasenas.isEmpty()) {
             Toast.makeText(this, "Por favor, ingrese su usuario y contraseña", Toast.LENGTH_SHORT).show();
-            //   } else if (registrarse.verificarCredenciales(usuarios, contrasenas)) {
+              } else if (!register.verificarCredenciales(usuarios, contrasenas)) {
+                 Toast.makeText(this, "Usuario o contraseña incorrectos," +
+                         "PORFAVOR REGISTRATE", Toast.LENGTH_SHORT).show();
+
+        } else {
             Intent i = new Intent(this, play.class);
             startActivity(i);
             finish();
-        } else {
-            Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }

@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,6 +27,10 @@ public class register extends AppCompatActivity {
     private EditText crearUsuario;
     private EditText crearContraseña;
     private Spinner genero;
+    private CheckBox cbSoltero;
+    private CheckBox cbCasado;
+    private RadioButton rbMayor;
+    private RadioButton rbMenor;
     private Button registrarse;
     private Button volver;
 
@@ -32,9 +39,7 @@ public class register extends AppCompatActivity {
 
     public static void verificarCredenciales() {
 
-
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,8 @@ public class register extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
+
         });
 
         nombre = findViewById(R.id.etNombre);
@@ -54,7 +61,28 @@ public class register extends AppCompatActivity {
         genero = findViewById(R.id.genderSpinner);
         registrarse = findViewById(R.id.btnRegistrar);
         volver = findViewById(R.id.btnVolver);
+        cbSoltero = findViewById(R.id.cbSoltero);
+        cbCasado = findViewById(R.id.cbCasado);
 
+
+        cbSoltero.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Si el CheckBox soltero está marcado, desmarca el CheckBox casado
+                if (isChecked) {
+                    cbCasado.setChecked(false);
+                }
+            }
+        });
+
+        cbCasado.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    cbSoltero.setChecked(false);
+                }
+            }
+        });
 
         registrarse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +107,19 @@ public class register extends AppCompatActivity {
         String password = crearContraseña.getText().toString();
         String gender = genero.getSelectedItem().toString();
 
+        boolean isSolteroChecked = cbSoltero.isChecked();
+        boolean isCasadoChecked = cbCasado.isChecked();
+
+        RadioButton rbMayor = findViewById(R.id.rbMayor);
+        RadioButton rbMenor = findViewById(R.id.rbMenor);
+        boolean isMayorChecked = rbMayor.isChecked();
+        boolean isMenorChecked = rbMenor.isChecked();
+
+        if (!(isMayorChecked ^ isMenorChecked)) {
+            Toast.makeText(this, "Seleccione una opción de edad", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         if (TextUtils.isEmpty(firstName)) {
             nombre.setError("El campo nombre no puede estar vacío");
             return false;
@@ -100,6 +141,12 @@ public class register extends AppCompatActivity {
 
         if (TextUtils.isEmpty(password)) {
             crearContraseña.setError("El campo contraseña no puede estar vacío");
+            return false;
+        }
+
+
+        if (!(isSolteroChecked ^ isCasadoChecked)) {
+            Toast.makeText(this, "Seleccione un estado civil", Toast.LENGTH_SHORT).show();
             return false;
         }
 
