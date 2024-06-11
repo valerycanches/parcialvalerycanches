@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.HashMap;
 
-public class registrarse extends AppCompatActivity {
+public class register extends AppCompatActivity {
 
     private EditText nombre;
     private EditText apellido;
@@ -29,6 +29,11 @@ public class registrarse extends AppCompatActivity {
 
     // Simulando una base de datos en memoria
     private static HashMap<String, String> usuariosRegistrados = new HashMap<>();
+
+    public static void verificarCredenciales() {
+
+
+    }
 
 
     @Override
@@ -88,6 +93,10 @@ public class registrarse extends AppCompatActivity {
             crearUsuario.setError("El campo usuario no puede estar vacío");
             return false;
         }
+        if (username.length() > 10) {
+            crearUsuario.setError("El usuario no debe exceder los 10 caracteres");
+            return false;
+        }
 
         if (TextUtils.isEmpty(password)) {
             crearContraseña.setError("El campo contraseña no puede estar vacío");
@@ -110,7 +119,7 @@ public class registrarse extends AppCompatActivity {
         usuariosRegistrados.put(username, password);
 
         Toast.makeText(this, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Login.class);
         intent.putExtra("USERNAME",username);
         intent.putExtra("PASSWORD",password);
         startActivity(intent);
@@ -118,7 +127,7 @@ public class registrarse extends AppCompatActivity {
     }
 
     private void volver() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
         finish();
     }

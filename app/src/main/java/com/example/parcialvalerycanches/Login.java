@@ -14,7 +14,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     private EditText usuario;
     private EditText contraseña;
@@ -63,24 +63,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Registrarse(View view) {
-        Intent i = new Intent(this, registrarse.class);
+        Intent i = new Intent(this, register.class);
         startActivity(i);
         finish();
     }
 
     public void IniciarSesion(View view) {
         String usuarios = usuario.getText().toString().trim();
+        if (usuarios.length() > 10) {
+            return;
+        }
+
         String contrasenas = contraseña.getText().toString().trim();
 
         if (usuarios.isEmpty() || contrasenas.isEmpty()) {
             Toast.makeText(this, "Por favor, ingrese su usuario y contraseña", Toast.LENGTH_SHORT).show();
-        } else if (registrarse.verificarCredenciales(usuarios, contrasenas)) {
-            Intent i = new Intent(this, juego.class);
+            //   } else if (registrarse.verificarCredenciales(usuarios, contrasenas)) {
+            Intent i = new Intent(this, play.class);
             startActivity(i);
             finish();
         } else {
             Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
         }
     }
+
 
 }

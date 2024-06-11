@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".registrarse">
+    tools:context=".register">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -51,12 +51,43 @@
             android:hint="Contraseña"
             android:inputType="textPassword" />
 
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbMayor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mayor de 18 años" />
+
+            <RadioButton
+                android:id="@+id/rbMenor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menor de 18 años" />
+
+        </RadioGroup>
+
         <Spinner
             android:id="@+id/genderSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="150dp"
+            android:layout_height="42dp"
             android:entries="@array/gender_array"
             android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/cbSoltero"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Soltero" />
+
+        <CheckBox
+            android:id="@+id/cbCasado"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Casado" />
 
         <Button
             android:id="@+id/btnRegistrar"
@@ -71,5 +102,6 @@
             android:layout_height="wrap_content"
             android:onClick="Volver"
             android:text="Volver" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
